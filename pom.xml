@@ -48,6 +48,9 @@
 
     <modules>
         <module>rocketmq-binder-send-receive-demo</module>
+        <module>rocketmq-binder-filter-demo</module>
+        <module>rocketmq-binder-transformer-demo</module>
+        <module>rocketmq-binder-splitter-demo</module>
     </modules>
 
 
