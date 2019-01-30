@@ -53,6 +53,7 @@
         <module>rocketmq-binder-splitter-demo</module>
         <module>rocketmq-binder-header-body-demo</module>
         <module>rocketmq-binder-sendto-demo</module>
+        <module>rocketmq-binder-aggregator-demo</module>
     </modules>
 
 

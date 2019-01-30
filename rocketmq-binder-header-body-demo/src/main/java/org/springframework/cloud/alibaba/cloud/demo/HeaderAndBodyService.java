@@ -21,7 +21,6 @@ import java.util.Map;
 import org.springframework.cloud.alibaba.cloud.demo.HeaderAndBodyApplication.Person;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
-import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -45,20 +44,13 @@ public class HeaderAndBodyService {
 
 	@StreamListener(value = Sink.INPUT)
 	public void receiveAllMsg(String msg) {
-		System.out.println(
-				"receive allMsg by StreamListener with load balance. content: " + msg);
+		System.out.println("receive allMsg by StreamListener. content: " + msg);
 	}
 
 	@StreamListener(value = Sink.INPUT)
 	public void receiveAllMsgHeaders(
 			@Header("PROPERTIES") Map<String, String> usersProperties) {
 		System.out.println("receive allMsg. custom headers: " + usersProperties);
-	}
-
-	@ServiceActivator(inputChannel = Sink.INPUT)
-	public void receiveByServiceActivator(String msg) {
-		System.out.println(
-				"receive allMsg by ServiceActivator with load balance. content: " + msg);
 	}
 
 }
