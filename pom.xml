@@ -54,6 +54,7 @@
         <module>rocketmq-binder-header-body-demo</module>
         <module>rocketmq-binder-sendto-demo</module>
         <module>rocketmq-binder-aggregator-demo</module>
+        <module>rocketmq-binder-error-consume-demo</module>
     </modules>
 
 
