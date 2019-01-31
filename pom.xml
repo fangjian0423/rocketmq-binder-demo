@@ -57,6 +57,11 @@
         <module>rocketmq-binder-error-consume-demo</module>
         <module>rocketmq-binder-transactional-demo</module>
         <module>rocketmq-binder-tags-demo</module>
+        <module>rocketmq-binder-sql-demo</module>
+        <module>rocketmq-binder-orderly-demo</module>
+        <module>rocketmq-binder-orderly-retry-demo</module>
+        <module>rocketmq-binder-concurrently-dlq-demo</module>
+        <module>rocketmq-binder-concurrently-broker-retry-demo</module>
     </modules>
 
 

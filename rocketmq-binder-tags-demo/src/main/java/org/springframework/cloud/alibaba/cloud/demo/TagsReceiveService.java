@@ -23,7 +23,7 @@ import org.springframework.stereotype.Service;
  * @author <a href="mailto:fangjian0423@gmail.com">Jim</a>
  */
 @Service
-public class TransactionalReceiveService {
+public class TagsReceiveService {
 
 	@StreamListener("input1")
 	public void receiveOrderMsg(String receiveMsg) {
