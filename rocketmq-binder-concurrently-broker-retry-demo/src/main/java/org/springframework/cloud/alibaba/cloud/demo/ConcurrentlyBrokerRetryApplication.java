@@ -33,7 +33,7 @@ public class ConcurrentlyBrokerRetryApplication {
 
 		@Override
 		public void run(String... args) throws Exception {
-			int count = 2;
+			int count = 1;
 			for (int index = 1; index <= count; index++) {
 				source.output().send(MessageBuilder.withPayload("msg-" + index)
 						.setHeader("index", index).build());

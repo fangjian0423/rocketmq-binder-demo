@@ -27,12 +27,12 @@ public class SQLReceiveService {
 
 	@StreamListener("input1")
 	public void receiveInput1Msg(String receiveMsg) {
-		System.out.println("receive USERS_index <= 2 msg: " + receiveMsg);
+		System.out.println("receive index <= 2 msg: " + receiveMsg);
 	}
 
 	@StreamListener("input2")
 	public void receiveInput2Msg(String receiveMsg) {
-		System.out.println("receive USERS_index > 2 msg: " + receiveMsg);
+		System.out.println("receive index > 2 msg: " + receiveMsg);
 	}
 
 }

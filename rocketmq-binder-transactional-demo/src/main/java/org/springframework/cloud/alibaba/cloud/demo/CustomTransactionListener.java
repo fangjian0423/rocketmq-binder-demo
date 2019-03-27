@@ -16,19 +16,16 @@
 
 package org.springframework.cloud.alibaba.cloud.demo;
 
-import java.util.HashMap;
-
 import org.apache.rocketmq.spring.annotation.RocketMQTransactionListener;
 import org.apache.rocketmq.spring.core.RocketMQLocalTransactionListener;
 import org.apache.rocketmq.spring.core.RocketMQLocalTransactionState;
-import org.apache.rocketmq.spring.support.RocketMQHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 
 /**
  * @author <a href="mailto:fangjian0423@gmail.com">Jim</a>
  */
-@RocketMQTransactionListener(txProducerGroup = "TransactionTopic", corePoolSize = 5, maximumPoolSize = 10)
+@RocketMQTransactionListener(txProducerGroup = "txGroup", corePoolSize = 5, maximumPoolSize = 10)
 public class CustomTransactionListener implements RocketMQLocalTransactionListener {
 
 	@Autowired
@@ -38,8 +35,7 @@ public class CustomTransactionListener implements RocketMQLocalTransactionListen
 	public RocketMQLocalTransactionState executeLocalTransaction(Message msg,
 			Object arg) {
 		fooService.checkInfo(msg);
-		if ("1".equals(((HashMap) msg.getHeaders().get(RocketMQHeaders.PROPERTIES))
-				.get("USERS_error"))) {
+		if ("1".equals(msg.getHeaders().get("error"))) {
 			System.out.println(new String((byte[]) msg.getPayload()) + " rollback");
 			return RocketMQLocalTransactionState.ROLLBACK;
 		}

@@ -16,13 +16,10 @@
 
 package org.springframework.cloud.alibaba.cloud.demo;
 
-import java.util.Map;
-
 import org.springframework.cloud.alibaba.cloud.demo.HeaderAndBodyApplication.Person;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.messaging.Message;
-import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
@@ -32,12 +29,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class HeaderAndBodyService {
 
-	@StreamListener(value = Sink.INPUT, condition = "headers['PROPERTIES']['USERS_index']=='1'")
+	@StreamListener(value = Sink.INPUT, condition = "headers['index']=='1'")
 	public void receiveByHeader(Message msg) {
-		System.out.println("filter by headers['PROPERTIES']['USERS_index']=='1': " + msg);
+		System.out.println("filter by headers['index']=='1': " + msg);
 	}
 
-	@StreamListener(value = Sink.INPUT, condition = "headers['PROPERTIES']['USERS_index']=='9999'")
+	@StreamListener(value = Sink.INPUT, condition = "headers['index']=='9999'")
 	public void receivePerson(@Payload Person person) {
 		System.out.println("Person: " + person);
 	}
@@ -45,12 +42,6 @@ public class HeaderAndBodyService {
 	@StreamListener(value = Sink.INPUT)
 	public void receiveAllMsg(String msg) {
 		System.out.println("receive allMsg by StreamListener. content: " + msg);
-	}
-
-	@StreamListener(value = Sink.INPUT)
-	public void receiveAllMsgHeaders(
-			@Header("PROPERTIES") Map<String, String> usersProperties) {
-		System.out.println("receive allMsg. custom headers: " + usersProperties);
 	}
 
 }

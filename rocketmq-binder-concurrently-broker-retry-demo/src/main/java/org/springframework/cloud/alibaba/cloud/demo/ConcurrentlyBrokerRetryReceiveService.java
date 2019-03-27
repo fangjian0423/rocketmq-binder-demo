@@ -38,11 +38,11 @@ public class ConcurrentlyBrokerRetryReceiveService {
 	@StreamListener(Sink.INPUT)
 	public void receiveConcurrentlyMsg(String receiveMsg) {
 	    log.info("invoke: " + count.get());
-		if (count.getAndIncrement() <= 3) {
+		if (count.getAndIncrement() <= 5) {
             throw new RuntimeException("Oops: " + receiveMsg);
 		}
 		else {
-			log.info("receiveOrderlyMsg: " + receiveMsg);
+			log.info("receiveConcurrentlyMsg: " + receiveMsg);
 		}
 	}
 

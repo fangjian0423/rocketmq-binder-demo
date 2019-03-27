@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.integration.support.MessageBuilder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.messaging.MessageHeaders;
+import org.springframework.util.MimeTypeUtils;
 
 /**
  * @author <a href="mailto:fangjian0423@gmail.com">Jim</a>
@@ -44,7 +46,9 @@ public class HeaderAndBodyApplication {
 			}
 			source.output().send(MessageBuilder
 					.withPayload(objectMapper.writeValueAsString(new Person(99, "Jim")))
-					.setHeader("index", 9999).build());
+					.setHeader("index", 9999)
+                    .setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON)
+                    .build());
 		}
 	}
 
