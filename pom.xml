@@ -63,6 +63,11 @@
         <module>rocketmq-binder-orderly-retry-demo</module>
         <module>rocketmq-binder-concurrently-dlq-demo</module>
         <module>rocketmq-binder-concurrently-broker-retry-demo</module>
+        <module>rocketmq-bus-demo/rocketmq-bus-node1</module>
+        <module>rocketmq-bus-demo/rocketmq-bus-node2</module>
+        <module>rocketmq-bus-demo/rocketmq-bus-node3</module>
+        <module>rocketmq-bus-demo/rocketmq-bus-node4</module>
+        <module>rocketmq-bus-demo/rocketmq-bus-node5</module>
     </modules>
 
     <repositories>
