@@ -69,6 +69,9 @@
         <module>rocketmq-bus-demo/rocketmq-bus-node3</module>
         <module>rocketmq-bus-demo/rocketmq-bus-node4</module>
         <module>rocketmq-bus-demo/rocketmq-bus-node5</module>
+        <module>spring-cloud-data-flow-demo/rocketmq-time-source</module>
+        <module>spring-cloud-data-flow-demo/rocketmq-time-processor</module>
+        <module>spring-cloud-data-flow-demo/rocketmq-time-sink</module>
     </modules>
 
     <repositories>
